@@ -1,5 +1,5 @@
 import './Navbar.css';
-
+import { Link } from 'react-router-dom';
 const Navbar = () => {
   return (
     <nav className="navbar">
@@ -8,13 +8,16 @@ const Navbar = () => {
           EventSystem
         </div>
         <div className="navbar-links">
-          <a href="/">Pagrindinis</a>
-          <a href="/events">Renginiai</a>
-          <a href="/login">Prisijungti</a>
+          <Link to="/">Pagrindinis</Link>
+          <Link to="/All">Visi</Link>
+          <Link to="/Concerts">Koncertai</Link>
+          <Link to="/Sports">Sportas</Link>
+          <Link to="/Festivals">Festivaliai</Link>
+          <Link to="/Theatre">Tetras</Link>  {/* Changed from Teather to Theatre */}
+          <Link to="/Login">Prisijungti/Prisiregistruoti</Link>
         </div>
       </div>
     </nav>
   );
 };
-
 export default Navbar;
