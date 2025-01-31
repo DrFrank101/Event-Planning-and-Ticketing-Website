@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import './Login.css';
 import './index.css';
-
+import { useNavigate } from 'react-router-dom';  // Add this import
 
 interface LoginFormData {
   email: string;
   password: string;
 }
 
+
 const Login = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState<LoginFormData>({
     email: '',
     password: ''
@@ -16,8 +18,31 @@ const Login = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you'll add the API call to your backend
-    console.log('Form submitted:', formData);
+    try {
+      const response = await fetch('http://localhost:3001/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error);
+      }
+
+      const userData = await response.json();
+      // Store the user data
+      localStorage.setItem('user', JSON.stringify(userData));
+      
+      // Navigate to home page
+      navigate('/');
+
+    } catch (error) {
+      console.error('Login error:', error);
+      // Handle error
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -60,7 +85,7 @@ const Login = () => {
           </button>
         </form>
         <div className="login-footer">
-          <p>Neturite paskyros? <a href="/register">Registruotis</a></p>
+          <p>Neturite paskyros? <a href="/Register">Registruotis</a></p>
           <a href="/forgot-password">Pamiršote slaptažodį?</a>
         </div>
       </div>

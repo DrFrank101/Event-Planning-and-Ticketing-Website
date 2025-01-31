@@ -5,6 +5,9 @@ import Festivals from './Festivals';
 import Login from './Login';
 import Sports from './Sports';
 import Theatre from './Theatre';
+import Register from './Register';
+//import Profile from './Profile'
+
 
 export const routes = [
   {
@@ -34,5 +37,13 @@ export const routes = [
   {
     path: "/Theatre",
     element: <Theatre />,
-  }
+  },
+  {
+    path: "/Register",
+    element: <Register />,
+  },
+  // {
+  //   path: "/Profile",
+  //   element: <Profile />,
+  // }
 ];
