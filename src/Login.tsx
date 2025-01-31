@@ -33,17 +33,15 @@ const Login = () => {
       }
 
       const userData = await response.json();
-      // Store the user data
       localStorage.setItem('user', JSON.stringify(userData));
       
-      // Navigate to home page
-      navigate('/');
+      // Force a page reload to update the navbar
+      window.location.href = '/';
 
     } catch (error) {
       console.error('Login error:', error);
-      // Handle error
     }
-  };
+};
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;

@@ -1,64 +1,49 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './index.css';
+import './Profile.css'
 
-interface UserData {
+interface User {
   username: string;
   email: string;
   role_id: number;
 }
 
 const Profile = () => {
+  const [user, setUser] = useState<User | null>(null);
   const navigate = useNavigate();
-  const [userData, setUserData] = useState<UserData | null>(null);
 
   useEffect(() => {
-    const user = localStorage.getItem('user');
-    if (!user) {
+    const storedUser = localStorage.getItem('user');
+    if (!storedUser) {
       navigate('/login');
       return;
     }
-    setUserData(JSON.parse(user));
+    setUser(JSON.parse(storedUser));
   }, [navigate]);
 
-  if (!userData) {
-    return null;
+  if (!user) {
+    return <div>Loading...</div>;
   }
 
   return (
     <div className="container mt-4">
-      <div className="profile-container">
-        <h2 className="text-center mb-4">Profilio Informacija</h2>
-        <div className="profile-card">
-          <div className="profile-info">
-            <div className="info-group">
-              <label>Vartotojo vardas:</label>
-              <p>{userData.username}</p>
-            </div>
-            <div className="info-group">
-              <label>El. paštas:</label>
-              <p>{userData.email}</p>
-            </div>
-            <div className="info-group">
-              <label>Rolė:</label>
-              <p>{getRoleName(userData.role_id)}</p>
-            </div>
-          </div>
+      <div className="card">
+        <h2>Mano Profilis</h2>
+        <div className="profile-info">
+          <p><strong>Vartotojo vardas:</strong> {user.username}</p>
+          <p><strong>El. paštas:</strong> {user.email}</p>
+          <p><strong>Rolė:</strong> {
+            user.role_id === 1 ? 'Neprisijungęs' :
+            user.role_id === 2 ? 'Prisijungęs' :
+            user.role_id === 3 ? 'Patvirtintas' :
+            user.role_id === 4 ? 'Moderatorius' :
+            user.role_id === 5 ? 'Administratorius' : 'Nežinoma'
+          }</p>
         </div>
       </div>
     </div>
   );
 };
-
-// Helper function to convert role_id to name
-function getRoleName(roleId: number): string {
-  const roles: { [key: number]: string } = {
-    1: 'Neprisijungęs',
-    2: 'Prisijungęs',
-    3: 'Patvirtintas',
-    4: 'Moderatorius',
-    5: 'Administratorius'
-  };
-  return roles[roleId] || 'Nežinoma rolė';
-}
 
 export default Profile;
