@@ -28,11 +28,16 @@
     gap: 2rem;
   }
   
-  .navbar-links a {
+.navbar-links a {
     color: white;
     text-decoration: none;
     font-size: 1rem;
-  }
+    /* Add consistent padding to match profile button */
+    padding: 10px;
+    display: flex;
+    align-items: center;  /* Center text vertically */
+    height: 100%;        /* Take full height */
+}
   
   .navbar-links a:hover {
     color: #e5e7eb;
@@ -49,8 +54,11 @@
     color: white;
     padding: 10px;
     cursor: pointer;
-    font-size: 16px;
-  }
+    font-size: 1rem;    /* Match the link font size */
+    height: 100%;       /* Take full height */
+    display: flex;
+    align-items: center; /* Center text vertically */
+}
   
   .dropdown-content {
     display: none;

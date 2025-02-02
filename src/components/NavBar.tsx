@@ -65,6 +65,7 @@ const Navbar = () => {
               <div className="dropdown-content">
                 <Link to="/profile">Mano Profilis</Link>
                 <Link to="/my-tickets">Mano Bilietai</Link>
+                <Link to="/CreateEvent">Sukurti Renginį</Link>
                 <button onClick={handleLogout}>Atsijungti</button>
               </div>
             </div>

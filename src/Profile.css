@@ -1,4 +1,8 @@
 /* Profile.css */
+.container {
+    margin-top: 80px; /* navbar height (64px) + some extra spacing */
+}
+
 .profile-container {
     max-width: 600px;
     margin: 0 auto;

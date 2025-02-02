@@ -34,11 +34,10 @@ const Profile = () => {
           <p><strong>Vartotojo vardas:</strong> {user.username}</p>
           <p><strong>El. paštas:</strong> {user.email}</p>
           <p><strong>Rolė:</strong> {
-            user.role_id === 1 ? 'Neprisijungęs' :
-            user.role_id === 2 ? 'Prisijungęs' :
-            user.role_id === 3 ? 'Patvirtintas' :
-            user.role_id === 4 ? 'Moderatorius' :
-            user.role_id === 5 ? 'Administratorius' : 'Nežinoma'
+            user.role_id === 1 ? 'Prisijungęs' :
+            user.role_id === 2 ? 'Patvirtintas' :
+            user.role_id === 3 ? 'Moderatorius' :
+            user.role_id === 4 ? 'Administratorius' : 'Nežinoma'
           }</p>
         </div>
       </div>

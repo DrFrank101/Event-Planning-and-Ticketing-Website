@@ -6,7 +6,8 @@ import Login from './Login';
 import Sports from './Sports';
 import Theatre from './Theatre';
 import Register from './Register';
-import Profile from './Profile'
+import Profile from './Profile';
+import CreateEvent from './CreateEvent';
 
 
 export const routes = [
@@ -45,5 +46,9 @@ export const routes = [
   {
     path: "/Profile",
     element: <Profile />,
+  },
+  {
+    path: '/CreateEvent',
+    element: <CreateEvent />
   }
 ];
