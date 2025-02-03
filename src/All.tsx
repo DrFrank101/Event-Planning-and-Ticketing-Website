@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './Events.css';
+import { useNavigate } from 'react-router-dom';
 
 interface Event {
   id: number;
@@ -17,7 +18,7 @@ interface Event {
 
 const All = () => {
   const [events, setEvents] = useState<Event[]>([]);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchEvents = async () => {
       try {
@@ -31,7 +32,9 @@ const All = () => {
 
     fetchEvents();
   }, []);
-
+  const handleEventClick = (eventId: number) =>{
+    navigate(`/event/${eventId}`) 
+  };
   return (
     <div className="events-container">
       <div className="middle-name">
@@ -39,7 +42,8 @@ const All = () => {
       </div>
       <div className="events-grid">
         {events.map(event => (
-          <div key={event.id} className="event-card">
+          <div key={event.id} className="event-card" onClick={() => handleEventClick(event.id)}
+          style={{ cursor: 'pointer' }}>
             <div className="event-image">
               {event.image_url ? (
                 <img src={event.image_url} alt={event.title} />

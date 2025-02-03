@@ -1,0 +1,135 @@
+.event-details-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .event-details-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .event-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #eee;
+    position: relative;
+  }
+  
+  .back-button {
+    position: absolute;
+    left: 1.5rem;
+    top: 1.5rem;
+    padding: 0.5rem 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+  }
+  
+  .event-header h1 {
+    text-align: center;
+    margin: 0;
+  }
+  
+  .event-details-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 2rem;
+  }
+  
+  .event-image-large {
+    width: 100%;
+    height: 400px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .event-image-large img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .placeholder-image-large {
+    width: 100%;
+    height: 100%;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+  }
+  
+  .event-info-detailed {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .info-section h2 {
+    margin-bottom: 1rem;
+  }
+  
+  .event-description {
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+  
+  .event-meta {
+    display: grid;
+    gap: 1rem;
+  }
+  
+  .meta-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .purchase-section {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+  }
+  
+  .ticket-price {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .price {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #007bff;
+  }
+  
+  .per-ticket {
+    color: #666;
+    margin-left: 0.5rem;
+  }
+  
+  .purchase-button {
+    width: 100%;
+    padding: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .purchase-button:hover {
+    background-color: #0056b3;
+  }
+  
+  @media (max-width: 768px) {
+    .event-details-content {
+      grid-template-columns: 1fr;
+    }
+  }

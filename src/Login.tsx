@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './Login.css';
 import './index.css';
-import { useNavigate } from 'react-router-dom';  // Add this import
 
 interface LoginFormData {
   email: string;
@@ -10,7 +9,6 @@ interface LoginFormData {
 
 
 const Login = () => {
-  const navigate = useNavigate();
   const [formData, setFormData] = useState<LoginFormData>({
     email: '',
     password: ''

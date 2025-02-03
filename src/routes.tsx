@@ -8,6 +8,7 @@ import Theatre from './Theatre';
 import Register from './Register';
 import Profile from './Profile';
 import CreateEvent from './CreateEvent';
+import EventDetails from './EventDetails';
 
 
 export const routes = [
@@ -50,5 +51,9 @@ export const routes = [
   {
     path: '/CreateEvent',
     element: <CreateEvent />
+  },
+  {
+    path: '/event/:id',
+    element: <EventDetails />
   }
 ];
